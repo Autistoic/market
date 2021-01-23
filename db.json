@@ -1,0 +1,24 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "title": "fresh homemade wine",
+      "price": "3.50"
+    },
+    {
+      "id": 2,
+      "title": "organic produce ",
+      "price": "7.99"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
