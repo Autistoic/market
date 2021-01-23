@@ -1,11 +1,11 @@
 import React from 'react';
-import ItemList from "../ItemsList/ItemsList";
+import ProductsList from "../Products/ProductsList";
 
 const Home = () => (
   (<div>
     Home Component
   
-  <ItemList></ItemList></div>)
+  <ProductsList></ProductsList></div>)
 );
 
 
