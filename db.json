@@ -1,14 +1,20 @@
 {
-  "items": [
+  "products": [
     {
       "id": 1,
       "title": "fresh homemade wine",
-      "price": "3.50"
+      "price": "3.50",
+      "type": "consumables",
+      "description": "Raw organic brown eggs in a basket",
+      "userID": 2
     },
     {
       "id": 2,
       "title": "organic produce ",
-      "price": "7.99"
+      "price": "7.99",
+      "type": "consumables",
+      "description": "Raw organic brown eggs in a basket",
+      "userID": 2
     }
   ],
   "comments": [

@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useFetch } from '../../useFetch';
-
+import {
+  Route,
+  Link
+} from "react-router-dom";
 
 const ProductsList = () => {
 
@@ -18,7 +21,9 @@ const ProductsList = () => {
 
           {products.map((product) => (
             <div key={product.id}>
+              <Link to={{ pathname: '/product/'+product.id}}>
               {product.title}{product.id}
+              </Link>
             </div>
           ))}
         </>

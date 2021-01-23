@@ -6,6 +6,7 @@ import {
   Link
 } from "react-router-dom";
 import Home from "./components/Home/Home"
+import ProductDetail from "./components/Products/ProductDetail"
 
 export default function App() {
   return (
@@ -33,6 +34,9 @@ export default function App() {
           </Route>
           <Route path="/users">
             <Users />
+          </Route>
+          <Route path="/product/:id">
+            <ProductDetail />
           </Route>
           <Route path="/">
             <Home />
