@@ -5,8 +5,9 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import Home from "./components/Home/Home"
-import ProductDetail from "./components/Products/ProductDetail"
+import Home from "./components/Home/Home";
+import ProductDetail from "./components/Products/ProductDetail";
+import User from "./components/User/User";
 
 export default function App() {
   return (
@@ -21,7 +22,7 @@ export default function App() {
               <Link to="/about">About</Link>
             </li>
             <li>
-              <Link to="/users">Users</Link>
+              <Link to="/profile">Profile</Link>
             </li>
           </ul>
         </nav>
@@ -32,8 +33,8 @@ export default function App() {
           <Route path="/about">
             <About />
           </Route>
-          <Route path="/users">
-            <Users />
+          <Route path="/profile">
+            <User />
           </Route>
           <Route path="/product/:id">
             <ProductDetail />
@@ -49,8 +50,4 @@ export default function App() {
 
 function About() {
   return <h2>About</h2>;
-}
-
-function Users() {
-  return <h2>Users</h2>;
 }
