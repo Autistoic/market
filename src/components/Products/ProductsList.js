@@ -12,7 +12,7 @@ const ProductsList = () => {
   const products = data;
 
   return (
-    <div>      
+    <div>
       {status === 'error' && <div>{error}</div>}
       {status === 'fetching' && <div>loading</div>}
       {status === 'fetched' && (
@@ -21,13 +21,18 @@ const ProductsList = () => {
 
           {products.map((product) => (
             <div key={product.id}>
-              <Link to={{ pathname: '/product/'+product.id}}>
-              {product.title}{product.id}
+              <Link to={{ pathname: '/product/' + product.id }}>
+                {product.title}{product.id}
               </Link>
             </div>
           ))}
         </>
       )}
+      <div>
+        <Link to={ {pathname: '/product/'}}>
+          Agregar producto
+        </Link>
+      </div>
     </div>
   );
 };

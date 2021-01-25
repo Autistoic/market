@@ -15,6 +15,22 @@
       "type": "consumables",
       "description": "Raw organic brown eggs in a basket",
       "userID": 2
+    },
+    {
+      "id": 88,
+      "title": "cows ",
+      "price": "799",
+      "type": "animals",
+      "description": "top notch cows",
+      "userID": 2
+    },
+    {
+      "userID": 1,
+      "title": "papitas",
+      "description": "las mejroes papitas",
+      "price": "3.42",
+      "type": "comida",
+      "id": 89
     }
   ],
   "comments": [
@@ -26,6 +42,6 @@
   ],
   "user": {
     "name": "thebestuser",
-    "id" : 3
+    "id": 3
   }
 }

@@ -11,13 +11,51 @@ const ProductDetail = () => {
 
   const product = data;
 
+  const [formData, setForm] = useState({userID: 1});
+
+  const myChangeHandler = (event) => {
+    let nam = event.target.name;
+    let val = event.target.value;
+    setForm({
+        ...formData,
+        [nam]: val
+    })
+  }
+
+  const saveProduct = e => {
+    e.preventDefault()
+    const requestOptions = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData)
+    };
+    fetch('http://localhost:3004/products/', requestOptions)
+      .then(response => response.json())
+      .then(data => console.log(data.id));
+
+  }
+
   return (
-    <div>
+    <form>
       product detail
-      <p> {product.title}</p>
-      <p> {product.description}</p>
-      <p> {product.price}</p>
-    </div>
+      <div>
+        <label for="title">Nombre</label>
+        <input name="title" type="text" value={product.title} onChange={myChangeHandler} />
+      </div>
+      <div>
+        <label for="description">Descripcion</label>
+        <textarea name="description" type="text" value={product.description} onChange={myChangeHandler}/>
+      </div>
+      <div>
+        <label for="price">Precio</label>
+        <input name="price" type="text" value={product.price}  onChange={myChangeHandler}/>
+      </div>
+      <div>
+        <label for="type">Tipo</label>
+        <input name="type" type="text" value={product.type}  onChange={myChangeHandler}/>
+      </div>
+      <button onClick={saveProduct}>GUardar</button>
+    </form>
   );
 };
 

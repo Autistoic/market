@@ -41,6 +41,9 @@ export default function App() {
           <Route path="/product/:id">
             <ProductDetail />
           </Route>
+          <Route path="/product">
+            <ProductDetail />
+          </Route>
           <Route path="/">
             <Home />
           </Route>
