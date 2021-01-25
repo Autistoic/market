@@ -9,6 +9,8 @@ import Home from "./components/Home/Home";
 import ProductDetail from "./components/Products/ProductDetail";
 import User from "./components/User/User";
 
+const user = { name : "el loco"}
+
 export default function App() {
   return (
     <Router>
@@ -34,7 +36,7 @@ export default function App() {
             <About />
           </Route>
           <Route path="/profile">
-            <User />
+            <User user={user}/>
           </Route>
           <Route path="/product/:id">
             <ProductDetail />

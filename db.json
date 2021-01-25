@@ -24,7 +24,8 @@
       "postId": 1
     }
   ],
-  "profile": {
-    "name": "typicode"
+  "user": {
+    "name": "thebestuser",
+    "id" : 3
   }
 }
