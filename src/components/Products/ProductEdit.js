@@ -9,6 +9,9 @@ const ProductDetail = () => {
 
   const { status, data, error } = useFetch("http://localhost:3004/products/" + id);
 
+  const productTypesResponse = useFetch("http://localhost:3004/productTypes/");
+  const productTypes = productTypesResponse.data;
+
   const product = data;
 
   const [formData, setForm] = useState({userID: 1});
@@ -52,7 +55,11 @@ const ProductDetail = () => {
       </div>
       <div>
         <label for="type">Tipo</label>
-        <input name="type" type="text" value={product.type}  onChange={onChangeHandler}/>
+        <select name="productTypeID" onChange={onChangeHandler}>
+            {productTypes.map((option) => (
+              <option value={option.id}>{option.name}</option>
+            ))}
+          </select>
       </div>
       <button onClick={saveProduct}>GUardar</button>
     </form>
