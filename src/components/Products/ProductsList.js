@@ -3,11 +3,11 @@ import { useFetch } from '../../useFetch';
 import {
   Route,
   Link
-} from "react-router-dom";
+} from 'react-router-dom';
 
 const ProductsList = () => {
 
-  const { status, data, error } = useFetch("http://localhost:3004/products");
+  const { status, data, error } = useFetch('http://localhost:3004/products');
 
   const products = data;
 
@@ -20,16 +20,23 @@ const ProductsList = () => {
           {typeof products === 'undefined' || products.length === 0 && <div> No products found! </div>}
 
           {products.map((product) => (
-            <div key={product.id}>
-              <Link to={{ pathname: '/product/' + product.id }}>
-                {product.title}{product.id}
-              </Link>
-            </div>
+            <Link to={{ pathname: '/product/' + product.id }} style={{ textDecoration: 'none' }}>
+              <div key={product.id} style={{ display: 'flex' }}>
+                <div>
+                  <img src={product.imgs} width='160' height='160' />
+                </div>
+                <div  style={{ 'display': 'flex', 'flex-direction': 'column' }}>
+                <div>{product.title}</div>
+                <div>$ {product.price}</div>
+                <div>★{product.score}</div>
+                </div>
+              </div>
+            </Link>
           ))}
         </>
       )}
       <div>
-        <Link to={ {pathname: '/publicar/'}}>
+        <Link to={{ pathname: '/publicar/' }}>
           Agregar producto
         </Link>
       </div>

@@ -6,7 +6,9 @@
       "price": "3.50",
       "type": "consumables",
       "description": "Raw organic brown eggs in a basket",
-      "userID": 2
+      "userID": 2,
+      "imgs": ["https://i.redd.it/ffa114iqna941.jpg"],
+      "score" : 7
     },
     {
       "id": 2,
@@ -14,7 +16,9 @@
       "price": "7.99",
       "type": "consumables",
       "description": "Raw organic brown eggs in a basket",
-      "userID": 2
+      "userID": 2,
+      "imgs" : ["https://images.freeart.com/comp/art-print/fa8386760/brown-and-white-eggs-in-a-basket.jpg"],
+      "score" : 8
     },
     {
       "id": 88,
@@ -22,7 +26,9 @@
       "price": "799",
       "type": "animals",
       "description": "top notch cows",
-      "userID": 2
+      "userID": 2,
+      "imgs" : ["https://ichef.bbci.co.uk/news/976/cpsprodpb/4C7A/production/_114587591_gettyimages-676894393.jpg"],
+      "score" : 10
     },
     {
       "userID": 1,
@@ -30,7 +36,9 @@
       "description": "las mejroes papitas",
       "price": "3.42",
       "type": "comida",
-      "id": 89
+      "id": 89,
+      "imgs" : ["http://sobrelatierra.agro.uba.ar/wp-content/uploads/2018/05/spunta777.jpg"],
+      "score" : 5
     },
     {
       "userID": 1,
@@ -38,7 +46,9 @@
       "description": "lindo lote",
       "price": "2215",
       "productTypeID": "2",
-      "id": 96
+      "id": 96,
+      "imgs" : ["https://www.dhddelivery.com/wp-content/uploads/2019/10/C%C3%B3mo-manejar-los-electrodom%C3%A9sticos.jpg"],
+      "score" : 7
     }
   ],
   "comments": [
