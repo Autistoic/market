@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import Home from "./components/Home/Home";
 import ProductDetail from "./components/Products/ProductDetail";
+import ProductEdit from "./components/Products/ProductEdit";
 import User from "./components/User/User";
 
 const user = { name : "el loco"}
@@ -41,8 +42,8 @@ export default function App() {
           <Route path="/product/:id">
             <ProductDetail />
           </Route>
-          <Route path="/product">
-            <ProductDetail />
+          <Route path="/publicar">
+            <ProductEdit />
           </Route>
           <Route path="/">
             <Home />

@@ -13,7 +13,7 @@ const ProductDetail = () => {
 
   const [formData, setForm] = useState({userID: 1});
 
-  const myChangeHandler = (event) => {
+  const onChangeHandler = (event) => {
     let nam = event.target.name;
     let val = event.target.value;
     setForm({
@@ -37,22 +37,22 @@ const ProductDetail = () => {
 
   return (
     <form>
-      product detail
+      agregar un nuevo producto
       <div>
         <label for="title">Nombre</label>
-        <input name="title" type="text" value={product.title} onChange={myChangeHandler} />
+        <input name="title" type="text" value={product.title} onChange={onChangeHandler} />
       </div>
       <div>
         <label for="description">Descripcion</label>
-        <textarea name="description" type="text" value={product.description} onChange={myChangeHandler}/>
+        <textarea name="description" type="text" value={product.description} onChange={onChangeHandler}/>
       </div>
       <div>
         <label for="price">Precio</label>
-        <input name="price" type="text" value={product.price}  onChange={myChangeHandler}/>
+        <input name="price" type="text" value={product.price}  onChange={onChangeHandler}/>
       </div>
       <div>
         <label for="type">Tipo</label>
-        <input name="type" type="text" value={product.type}  onChange={myChangeHandler}/>
+        <input name="type" type="text" value={product.type}  onChange={onChangeHandler}/>
       </div>
       <button onClick={saveProduct}>GUardar</button>
     </form>

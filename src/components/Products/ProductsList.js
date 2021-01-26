@@ -29,7 +29,7 @@ const ProductsList = () => {
         </>
       )}
       <div>
-        <Link to={ {pathname: '/product/'}}>
+        <Link to={ {pathname: '/publicar/'}}>
           Agregar producto
         </Link>
       </div>
