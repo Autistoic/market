@@ -36,8 +36,8 @@
   "comments": [
     {
       "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "comments": [{"value" : "heh tenes para mandar 2?"},{"value" : "no me rebajas 50 pesos si te compro 7?"}],
+      "productId": 1
     }
   ],
   "user": {
