@@ -27,10 +27,10 @@ const ProductDetail = () => {
         {comments.status === 'fetching' && <div>loading</div>}
         {comments.status === 'fetched' && (
           <>
-            {typeof comments === 'undefined' || comments.length === 0 && <div> No products found! </div>}
-            {comments.data[0].comments.map((product) => (
-              <div key={product.id}>
-                {product.value}{product.id}
+            {typeof comments.data === 'undefined' || comments.data.length === 0 && <div> No products found! </div>}
+            {comments.data.map((comment_data) => (
+              <div key={comment_data.user_id}>
+                {comment_data.comment}{comment_data.user_id}
               </div>
             ))}
           </>
