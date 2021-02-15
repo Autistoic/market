@@ -25,10 +25,10 @@ const ProductsList = () => {
                 <div>
                   <img src={product.imgs} width='160' height='160' />
                 </div>
-                <div  style={{ 'display': 'flex', 'flex-direction': 'column' }}>
-                <div>{product.title}</div>
-                <div>$ {product.price}</div>
-                <div>★{product.score}</div>
+                <div style={{ 'display': 'flex', 'flex-direction': 'column' }}>
+                  <div>{product.title}</div>
+                  <div>$ {product.price}</div>
+                  <div>★{product.score}</div>
                 </div>
               </div>
             </Link>

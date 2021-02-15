@@ -10,9 +10,13 @@ const ProductDetail = () => {
 
   const { id } = useParams();
   const productsResponse = useFetch("http://localhost:3004/products/" + id);
-  const commentsResponse = useFetch("http://localhost:3004/comments?productId/" + id);
+  const commentsResponse = useFetch("http://localhost:3004/comments?product_id=" + id);
   const product = productsResponse.data;
   const comments = commentsResponse;
+
+
+    const productDetailsResponse = useFetch("http://localhost:3004/products_details?product_id=" + id);
+    const productDetails = productDetailsResponse;
 
   return (
     <>
