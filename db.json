@@ -3,7 +3,7 @@
     {
       "id": 1,
       "title": "fresh homemade wine",
-      "price": "3.50",
+      "price": 3.50,
       "type": "consumables",
       "description": "Raw organic brown eggs in a basket",
       "userID": 2,
@@ -15,7 +15,7 @@
     {
       "id": 2,
       "title": "organic produce ",
-      "price": "7.99",
+      "price": 7.99,
       "type": "consumables",
       "description": "Raw organic brown eggs in a basket",
       "userID": 2,
@@ -27,7 +27,7 @@
     {
       "id": 88,
       "title": "cows ",
-      "price": "799",
+      "price": 799,
       "type": "animals",
       "description": "top notch cows",
       "userID": 2,
@@ -40,7 +40,7 @@
       "userID": 1,
       "title": "papitas",
       "description": "las mejroes papitas",
-      "price": "3.42",
+      "price": 3.42,
       "type": "comida",
       "id": 89,
       "imgs": [
@@ -52,7 +52,7 @@
       "userID": 1,
       "title": "contrabando de electronicos",
       "description": "lindo lote",
-      "price": "2215",
+      "price": 2215,
       "productTypeID": "2",
       "id": 96,
       "imgs": [
