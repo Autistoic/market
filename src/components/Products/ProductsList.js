@@ -4,14 +4,23 @@ import {
   Route,
   Link
 } from 'react-router-dom';
+import Button from '@material-ui/core/Button';
+import { Pagination } from '@material-ui/lab';
 
 const ProductsList = () => {
   const [status, setStatus] = useState('idle');
   const [products, setProducts] = useState([]);
+  const [totalProducts, setTotalProducts] = useState(1);  
   const [error, setError] = useState(null);
+  //en loadNextPage pageState no se actualiza, asi que usa pageState
+  //en el componente paginator page no se actualiza asi que usa pageState
+  //TODO: que utilice solo 1
+  const [pageState, setPageState] = useState(1);
+  let page = 1;
+  const itemsPerPage = 2;
 
   useEffect(() => {
-    fetch('http://localhost:3004/products?_page=1&_limit=2')
+    fetch('http://localhost:3004/products?_page=1&_limit=' + itemsPerPage)
       .then(res => res.json())
       .then(
         (result) => {
@@ -22,8 +31,23 @@ const ProductsList = () => {
           setStatus("error")
           setError(error);
         }
-      )
+      );
+
+    fetch('http://localhost:3004/total_products')
+      .then(res => res.json())
+      .then(
+        (result) => {
+          setTotalProducts(result.value);
+         // setStatus("fetched")
+        },
+        (error) => {
+          // setStatus("error")
+          // setError(error);
+        }
+      );
+
   }, [])
+
 
   function setProductsSortedBy(filter, order) {
     fetch("http://localhost:3004/products?_sort=" + filter + "&_order=" + order)
@@ -40,6 +64,27 @@ const ProductsList = () => {
       )
   }
 
+  function loadNextPage() {
+    fetch('http://localhost:3004/products?_page=' + page + '&_limit=' + itemsPerPage)
+      .then(res => res.json())
+      .then(
+        (result) => {
+          setProducts([...result]);
+          setStatus("fetched")
+        },
+        (error) => {
+          setStatus("error")
+          setError(error);
+        }
+      )
+  }
+
+  function handlePageClick(event, value) {
+    page = value;
+    setPageState(value);
+    loadNextPage()
+  };
+
   function handleClick(e) {
     e.preventDefault();
     console.log('The link was clicked.');
@@ -51,6 +96,7 @@ const ProductsList = () => {
       setProductsSortedBy('price', 'asc');
     }
   }
+
 
   return (
     <div>
@@ -82,9 +128,11 @@ const ProductsList = () => {
           ))}
         </>
       )}
+      <Pagination count={Math.round(totalProducts / itemsPerPage)} page={pageState} onChange={handlePageClick} />
       <div>
         <Link to={{ pathname: '/publicar/' }}>
-          Agregar producto
+          <Button variant="contained" color="primary">Agregar producto</Button>
+
         </Link>
       </div>
     </div>

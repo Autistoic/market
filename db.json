@@ -1,4 +1,7 @@
 {
+  "total_products": {
+    "value": 5
+  },
   "products": [
     {
       "id": 1,
@@ -58,8 +61,7 @@
       "imgs": [
         "https://www.dhddelivery.com/wp-content/uploads/2019/10/C%C3%B3mo-manejar-los-electrodom%C3%A9sticos.jpg"
       ],
-      "score": 7,
-      "accepted_payments": []
+      "score": 7
     }
   ],
   "comments": [
