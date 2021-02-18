@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ProductsList from '../Shared/ItemsList';
+import UserPreview from '../User/UserPreview';
 import {
   Route,
   Link
@@ -156,6 +157,9 @@ const Home = () => {
 
   return (
     <div style={{ 'display': 'flex', 'flex-direction': 'row' }}>
+      <div>
+        <UserPreview user={user}></UserPreview>
+      </div>
       <div>
         <div>Buscar:<input onChange={handleSearch}></input>
         </div>
