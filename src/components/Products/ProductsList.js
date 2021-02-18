@@ -12,12 +12,11 @@ const ProductsList = () => {
   const [products, setProducts] = useState([]);
   const [totalProducts, setTotalProducts] = useState(1);  
   const [error, setError] = useState(null);
-  //en loadNextPage pageState no se actualiza, asi que usa pageState
-  //en el componente paginator page no se actualiza asi que usa pageState
-  //TODO: que utilice solo 1
   const [pageState, setPageState] = useState(1);
   let page = 1;
   const itemsPerPage = 2;
+  
+  const [sortedBy, setsortedBy] = useState('');
 
   useEffect(() => {
     fetch('http://localhost:3004/products?_page=1&_limit=' + itemsPerPage)
@@ -50,11 +49,14 @@ const ProductsList = () => {
 
 
   function setProductsSortedBy(filter, order) {
-    fetch("http://localhost:3004/products?_sort=" + filter + "&_order=" + order)
+    const sortedBy = '&_sort=' + filter + '&_order=' + order
+    setsortedBy(sortedBy);
+    fetch('http://localhost:3004/products?_page=1&_limit=' + itemsPerPage + sortedBy)
       .then(res => res.json())
       .then(
         (result) => {
           setProducts(result);
+          setPageState(1);
           setStatus("fetched")
         },
         (error) => {
@@ -65,7 +67,8 @@ const ProductsList = () => {
   }
 
   function loadNextPage() {
-    fetch('http://localhost:3004/products?_page=' + page + '&_limit=' + itemsPerPage)
+    
+    fetch('http://localhost:3004/products?_page=' + page + '&_limit=' + itemsPerPage + sortedBy)
       .then(res => res.json())
       .then(
         (result) => {
@@ -105,8 +108,9 @@ const ProductsList = () => {
       {status === 'fetched' && (
         <>
           {typeof products === 'undefined' || products.length === 0 && <div> No products found! </div>}
-          <div>ordenar por
+          <div>
             <select onChange={handleClick}>
+              <option value="">Ordenar por</option>
               <option value="priceMin">menor precio</option>
               <option value="priceMax">mayor precio</option>
               <option value="closest">mas cercano</option>
