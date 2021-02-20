@@ -14,6 +14,7 @@ const ProductList = () => {
     const [user, setUser] = useState({});
     const [sortedBy, setsortedBy] = useState('');
     const [products, setProducts] = useState([]);
+    const [status, setStatus] = useState('idle');
     let totalProducts = 5;
     const [pageState, setPageState] = useState(1);
     let page = 1;
@@ -31,8 +32,7 @@ const ProductList = () => {
             text: "mas cercano",
             value: "closest",
         }
-    ];
-    const [status, setStatus] = useState('idle');
+    ];    
 
     useEffect(() => {
         fetch('http://localhost:3004/user')

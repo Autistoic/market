@@ -9,8 +9,9 @@ import Home from "./components/Home/Home";
 import ProductDetail from "./components/Products/ProductDetail";
 import ProductEdit from "./components/Products/ProductEdit";
 import User from "./components/User/User";
+import Questions from "./components/User/Questions";
 
-const user = { name : "el loco"}
+const user = { name : "name "}
 
 export default function App() {
   return (
@@ -37,13 +38,16 @@ export default function App() {
             <About />
           </Route>
           <Route path="/profile">
-            <User user={user}/>
+            <User/>
           </Route>
           <Route path="/product/:id">
             <ProductDetail />
           </Route>
           <Route path="/publicar">
             <ProductEdit />
+          </Route>
+          <Route path="/questions">
+            <Questions />
           </Route>
           <Route path="/">
             <Home />

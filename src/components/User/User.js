@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import {
   Route,
@@ -7,41 +7,57 @@ import {
 //const { status, data, error } = useFetch("http://localhost:3004/user/" + id);
 
 
-const User = ({ user }) => (
-  <div>
-    User Component {user.name}
+const User = () => {
+
+  const [user, setUser] = useState({});
+  useEffect(() => {
+    fetch('http://localhost:3004/user')
+      .then(res => res.json())
+      .then(
+        (result) => {
+          setUser(result)
+        },
+        (error) => {
+        }
+      )
+  }, [])
+
+  return (
     <div>
-      <Link to={{ pathname: '/useredit/' }}>
-        Editar datos
+      User Component {user.name}
+      <div>
+        <Link to={{ pathname: '/useredit/' }}>
+          Editar datos
         </Link>
-    </div>
-    <div>
-      <Link to={{ pathname: '/purchases/' }}>
-        Compras
+      </div>
+      <div>
+        <Link to={{ pathname: '/purchases/' }}>
+          Compras
         </Link>
-    </div>
-    <div>
-      <Link to={{ pathname: '/sales/' }}>
-        Ventas
+      </div>
+      <div>
+        <Link to={{ pathname: '/sales/' }}>
+          Ventas
         </Link>
-    </div>
-    <div>
-      <Link to={{ pathname: '/questions/' }}>
-        Preguntas
+      </div>
+      <div>
+        <Link to={{ pathname: '/questions/', state: { id: user.id } }} >
+          Preguntas
         </Link>
-    </div>
-    <div>
-      <Link to={{ pathname: '/favs/' }}>
-        Favoritos
+      </div>
+      <div>
+        <Link to={{ pathname: '/favs/' }}>
+          Favoritos
         </Link>
-    </div>
-    <div>
-      <Link to={{ pathname: '/product/' }}>
-        Publicar nuevo producto
+      </div>
+      <div>
+        <Link to={{ pathname: '/product/' }}>
+          Publicar nuevo producto
         </Link>
+      </div>
     </div>
-  </div>
-);
+  )
+}
 
 User.propTypes = {};
 
