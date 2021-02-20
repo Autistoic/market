@@ -6,11 +6,10 @@ import {
   Link
 } from "react-router-dom";
 
-const ProductListItem = ({items, route}) => {
+const ProductListItem = ({item, route}) => {
 
   return (
     <>
-       {items.map((item) => (
         <Link to={{ pathname: '/' + route + '/' + item.id }} style={{ textDecoration: 'none' }}>
           <div key={item.id} style={{ display: 'flex' }}>
             <div>
@@ -23,7 +22,6 @@ const ProductListItem = ({items, route}) => {
             </div>
           </div>
         </Link>
-      ))}
     </>
   );
 };

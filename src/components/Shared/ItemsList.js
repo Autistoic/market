@@ -4,24 +4,14 @@ import {
   Route,
   Link
 } from 'react-router-dom';
-import { Pagination } from '@material-ui/lab';
 
-const ItemsList = ({ items, itemsPerPage, page, totalItems, pageState,
-  handleSortClick, handlePageClick, route, itemsSearchCriteria, ItemComponent }) => {
+const ItemsList = ({ ItemComponent, items, route }) => {
   return (
     <>
       {typeof items === 'undefined' || items.length === 0 && <div> No items found! </div>}
-      <div>
-        <select onChange={handleSortClick}>
-          <option value="">Ordenar por</option>
-          {itemsSearchCriteria.map((itemSearch) => (
-            <option value={itemSearch.value}>{itemSearch.text}</option>
-          ))}
-        </select>
-      </div>
-      {ItemComponent}
-      <Pagination count={Math.round(totalItems / itemsPerPage)} page={pageState} onChange={handlePageClick} />
-
+      {items.map((item) => (
+        React.cloneElement(ItemComponent, { item: item, route: route })
+      ))}
     </>
   );
 };
