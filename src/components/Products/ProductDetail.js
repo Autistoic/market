@@ -10,13 +10,11 @@ const ProductDetail = () => {
 
   const { id } = useParams();
   const productsResponse = useFetch("http://localhost:3004/products/" + id);
-  const commentsResponse = useFetch("http://localhost:3004/comments?product_id=" + id);
+  const questionsResponse = useFetch("http://localhost:3004/questions?product_id=" + id);
+  const productDetailsResponse = useFetch("http://localhost:3004/products_details?product_id=" + id);
   const product = productsResponse.data;
-  const comments = commentsResponse;
-
-
-    const productDetailsResponse = useFetch("http://localhost:3004/products_details?product_id=" + id);
-    const productDetails = productDetailsResponse;
+  const questions = questionsResponse;
+  const productDetails = productDetailsResponse;
 
   return (
     <>
@@ -25,16 +23,16 @@ const ProductDetail = () => {
       <p>{product.description}</p>
       <p>{product.price}</p>
 
-      <h2>Comentarios</h2>
+      <h2>Preguntas</h2>
       <div>
-        {comments.status === 'error' && <div>{comments.error}</div>}
-        {comments.status === 'fetching' && <div>loading</div>}
-        {comments.status === 'fetched' && (
+        {questions.status === 'error' && <div>{questions.error}</div>}
+        {questions.status === 'fetching' && <div>loading</div>}
+        {questions.status === 'fetched' && (
           <>
-            {typeof comments.data === 'undefined' || comments.data.length === 0 && <div> No products found! </div>}
-            {comments.data.map((comment_data) => (
-              <div key={comment_data.user_id}>
-                {comment_data.comment}{comment_data.user_id}
+            {typeof questions.data === 'undefined' || questions.data.length === 0 && <div> No hay preguntas todavia :) </div>}
+            {questions.data.map((question) => (
+              <div key={question.user_id}>
+                {question.text}
               </div>
             ))}
           </>

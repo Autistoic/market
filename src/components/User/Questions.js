@@ -29,9 +29,9 @@ const Questions = (props) => {
       {
         status === 'fetched' && (
           <>
-            < div >
-              Questions Component
-        <ItemsList ItemComponent={<QuestionListItem />} items={userQuestions} route={'product'} />
+            <div>
+            Questions Component
+            <ItemsList ItemComponent={<QuestionListItem />} items={userQuestions} route={'product'} />
             </div >
           </>)
       }

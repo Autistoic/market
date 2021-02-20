@@ -9,7 +9,7 @@ import {
 const QuestionListItem = ({item, route}) => {
   return (
     <>
-        <Link to={{ pathname: '/' + route + '/' + item.id }} style={{ textDecoration: 'none' }}>
+        <Link to={{ pathname: '/' + route + '/' + item.product_id }} style={{ textDecoration: 'none' }}>
           <div key={item.id} style={{ display: 'flex' }}>
             <div style={{ 'display': 'flex', 'flex-direction': 'column' }}>
               <div>{item.text}</div>
