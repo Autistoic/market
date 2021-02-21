@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -9,55 +9,93 @@ import Home from "./components/Home/Home";
 import ProductDetail from "./components/Products/ProductDetail";
 import ProductEdit from "./components/Products/ProductEdit";
 import User from "./components/User/User";
-import Questions from "./components/User/Questions";
+import UserQuestions from "./components/User/UserQuestions";
 
-const user = { name : "name "}
+
+const UserContext = React.createContext();
 
 export default function App() {
-  return (
-    <Router>
-      <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/about">About</Link>
-            </li>
-            <li>
-              <Link to="/profile">Profile</Link>
-            </li>
-          </ul>
-        </nav>
 
-        {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
-        <Switch>
-          <Route path="/about">
-            <About />
-          </Route>
-          <Route path="/profile">
-            <User/>
-          </Route>
-          <Route path="/product/:id">
-            <ProductDetail />
-          </Route>
-          <Route path="/publicar">
-            <ProductEdit />
-          </Route>
-          <Route path="/questions">
-            <Questions />
-          </Route>
-          <Route path="/">
-            <Home />
-          </Route>
-        </Switch>
-      </div>
-    </Router>
+  const [user, setUser] = useState({});
+  const [status, setStatus] = useState('idle');
+
+  useEffect(() => {
+    fetch('http://localhost:3004/user')
+      .then(res => res.json())
+      .then(
+        (result) => {
+          setUser(result)
+          setStatus('fetched')
+        },
+        (error) => {
+        }
+      )
+  }, [])
+
+
+
+  return (
+    <>
+      {
+        status === 'fetched' && (
+          <>
+            <UserContext.Provider value={user}>
+              <Router>
+                <div>
+                  <nav>
+                    <ul>
+                      <li>
+                        <Link to="/">Home</Link>
+                      </li>
+                      <li>
+                        <Link to="/about">About</Link>
+                      </li>
+                      <li>
+                        <Link to="/profile">Profile</Link>
+                      </li>
+                    </ul>
+                  </nav>
+
+                  {/* A <Switch> looks through its children <Route>s and
+              renders the first one that matches the current URL. */}
+                  <Switch>
+                    <Route path="/about">
+                      <About />
+                    </Route>
+                    <Route path="/profile">
+                      <User />
+                    </Route>
+                    <Route path="/product/:id">
+                      <ProductDetail />
+                    </Route>
+                    <Route path="/publicar">
+                      <ProductEdit />
+                    </Route>
+                    <Route path="/userQuestions">
+                      <UserQuestions />
+                    </Route>
+                    <Route path="/">
+                      <Home />
+                    </Route>
+                  </Switch>
+                </div>
+              </Router>
+            </UserContext.Provider>
+          </>)
+      }
+    </>
   );
+}
+
+export function useUserContext() {
+  const context = React.useContext(UserContext)
+  if (context === undefined) {
+    throw new Error('useCountState must be used within a CountProvider')
+  }
+  return context
 }
 
 function About() {
   return <h2>About</h2>;
 }
+
