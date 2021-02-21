@@ -5,6 +5,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import QuestionsList from '../Shared/QuestionsList';
 
 const ProductDetail = () => {
 
@@ -19,29 +20,15 @@ const ProductDetail = () => {
   return (
     <>
       <h1>{product.title}</h1>
-
       <p>{product.description}</p>
       <p>{product.price}</p>
 
       <h2>Preguntas</h2>
       <div>
-        {questions.status === 'error' && <div>{questions.error}</div>}
-        {questions.status === 'fetching' && <div>loading</div>}
-        {questions.status === 'fetched' && (
-          <>
-            {typeof questions.data === 'undefined' || questions.data.length === 0 && <div> No hay preguntas todavia :) </div>}
-            {questions.data.map((question) => (
-              <div key={question.user_id}>
-                {question.text}
-              </div>
-            ))}
-          </>
-        )}
+        <QuestionsList searchBy={'product_id'} id={id}></QuestionsList>
       </div>
     </>
   );
 };
-
-
 
 export default ProductDetail;

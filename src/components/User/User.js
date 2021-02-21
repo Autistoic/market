@@ -41,7 +41,7 @@ const User = () => {
         </Link>
       </div>
       <div>
-        <Link to={{ pathname: '/questions/', state: { id: user.id } }} >
+        <Link to={{ pathname: '/userQuestions/' }} >
           Preguntas
         </Link>
       </div>
