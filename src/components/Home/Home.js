@@ -20,9 +20,6 @@ const Home = () => {
 
   return (
     <div style={{ 'display': 'flex', 'flex-direction': 'row' }}>
-      <div>
-        <UserPreview user={user}></UserPreview>
-      </div>
       <ProductsList></ProductsList>
     </div>)
 }

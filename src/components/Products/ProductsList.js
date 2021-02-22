@@ -7,6 +7,8 @@ import Button from '@material-ui/core/Button';
 import { Pagination } from '@material-ui/lab';
 import ItemsList from '../Shared/ItemsList';
 import SelectOrder from '../Shared/SelectOrder';
+import TextField from '@material-ui/core/TextField';
+
 
 const ProductList = () => {
 
@@ -148,7 +150,8 @@ const ProductList = () => {
 
         <>
             <div>
-                <div>Buscar:<input onChange={handleSearch}></input>
+                <div>
+                <TextField id="outlined-basic" label="Buscar" variant="outlined" onChange={handleSearch}/>
                 </div>
                 {status === 'error' && <div>{ }</div>}
                 {status === 'fetching' && <div>loading</div>}
@@ -162,7 +165,7 @@ const ProductList = () => {
             </div>
             <div>
                 <Link to={{ pathname: '/publicar/' }}>
-                    <Button variant="contained" color="primary">Agregar producto</Button>
+                    <Button variant="contained" color="primary">Vender</Button>
                 </Link>
             </div>
         </>

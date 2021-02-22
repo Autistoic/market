@@ -5,9 +5,10 @@ import { useUserContext } from '../../App'
 
 const UserQuestions = () => {
     const user = useUserContext();
-    return (<>
-        <QuestionsList searchBy={'user_id'} id={user.id} route={'product'}></QuestionsList>
-    </>
+    return (
+        <>
+            <QuestionsList searchBy={'user_id'} id={user.id} route={'product'}/>
+        </>
     )
 };
 

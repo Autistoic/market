@@ -10,6 +10,7 @@ import ProductDetail from "./components/Products/ProductDetail";
 import ProductEdit from "./components/Products/ProductEdit";
 import User from "./components/User/User";
 import UserQuestions from "./components/User/UserQuestions";
+import MainMenu from './components/Shared/MainMenu';
 
 
 const UserContext = React.createContext();
@@ -42,21 +43,8 @@ export default function App() {
             <UserContext.Provider value={user}>
               <Router>
                 <div>
-                  <nav>
-                    <ul>
-                      <li>
-                        <Link to="/">Home</Link>
-                      </li>
-                      <li>
-                        <Link to="/about">About</Link>
-                      </li>
-                      <li>
-                        <Link to="/profile">Profile</Link>
-                      </li>
-                    </ul>
-                  </nav>
-
-                  {/* A <Switch> looks through its children <Route>s and
+                    <MainMenu></MainMenu>
+                    {/* A <Switch> looks through its children <Route>s and
               renders the first one that matches the current URL. */}
                   <Switch>
                     <Route path="/about">

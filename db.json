@@ -88,11 +88,17 @@
       "text": "son marrones o blancos? ",
       "product_id": "2",
       "id": 4
+    },
+    {
+      "user_id": 1,
+      "text": "son cebu o q",
+      "product_id": "88",
+      "id": 5
     }
   ],
   "user": {
     "user_name": "thebestuser",
-    "id": 3,
+    "id": 1,
     "address": {},
     "id_document": 123444,
     "real_name": ""
