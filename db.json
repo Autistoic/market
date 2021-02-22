@@ -6,7 +6,7 @@
     {
       "id": 1,
       "title": "fresh homemade wine",
-      "price": 3.50,
+      "price": 3.5,
       "type": "consumables",
       "description": "Raw organic brown eggs in a basket",
       "userID": 2,
@@ -66,14 +66,28 @@
   ],
   "questions": [
     {
+      "id": 1,
       "user_id": 1,
       "text": "heh tenes para mandar 2?",
       "product_id": 1
     },
     {
+      "id": 2,
       "user_id": 3,
       "text": "no me rebajas 50 pesos si te compro 7?",
       "product_id": 1
+    },
+    {
+      "user_id": 1,
+      "text": "envias a merlo?",
+      "product_id": "1",
+      "id": 3
+    },
+    {
+      "user_id": 1,
+      "text": "son marrones o blancos? ",
+      "product_id": "2",
+      "id": 4
     }
   ],
   "user": {

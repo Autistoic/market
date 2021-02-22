@@ -11,11 +11,27 @@ const ProductDetail = () => {
 
   const { id } = useParams();
   const productsResponse = useFetch("http://localhost:3004/products/" + id);
-  const questionsResponse = useFetch("http://localhost:3004/questions?product_id=" + id);
   const productDetailsResponse = useFetch("http://localhost:3004/products_details?product_id=" + id);
   const product = productsResponse.data;
-  const questions = questionsResponse;
   const productDetails = productDetailsResponse;
+  const [input, setInput] = useState(''); // '' is the initial state value
+
+  const saveQuestion = e => {
+    e.preventDefault()
+    const requestOptions = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        "user_id": 1,
+        "text": input,
+        "product_id": id
+      })
+    };
+    fetch('http://localhost:3004/questions/', requestOptions)
+      .then(response => response.json())
+      .then(data => console.log(data.id));
+
+  }
 
   return (
     <>
@@ -27,6 +43,9 @@ const ProductDetail = () => {
       <div>
         <QuestionsList searchBy={'product_id'} id={id}></QuestionsList>
       </div>
+      <h3>Nueva pregunta</h3>
+      <textarea value={input} onInput={e => setInput(e.target.value)}/>
+      <button onClick={saveQuestion}>Enviar pregunta</button>
     </>
   );
 };
