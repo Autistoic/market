@@ -14,7 +14,9 @@ const ToggleLink = ({ item, route }) => {
     }
     return (
         <div>
-            <span>{item.text}</span>
+            {
+                item && (
+                    <span>{item.text}</span>)}
         </div>
     );
 

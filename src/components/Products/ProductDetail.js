@@ -6,6 +6,8 @@ import {
     Link
 } from "react-router-dom";
 import QuestionsList from '../Shared/QuestionsList';
+import  QuestionsModal from '../Questions/QuestionsModal';
+import Button from '@material-ui/core/Button';
 
 const ProductDetail = () => {
 
@@ -15,19 +17,20 @@ const ProductDetail = () => {
     const productDetails = productDetailsResponse;
     const [input, setInput] = useState('');
     const [status, setStatus] = useState('idle');
+    const [open, setOpen] = useState(false);
 
     useEffect(() => {
         fetch('http://localhost:3004/products/' + id)
-          .then(res => res.json())
-          .then(
-            (result) => {
-              setProduct(result)
-              setStatus('fetched')
-            },
-            (error) => {
-            }
-          )
-      }, [])
+            .then(res => res.json())
+            .then(
+                (result) => {
+                    setProduct(result)
+                    setStatus('fetched')
+                },
+                (error) => {
+                }
+            )
+    }, [])
 
     const saveQuestion = e => {
         e.preventDefault()
@@ -46,6 +49,15 @@ const ProductDetail = () => {
 
     }
 
+    const handleOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
+
+
     return (
         <>{status === 'fetched' && (
             <>
@@ -57,6 +69,10 @@ const ProductDetail = () => {
                 <h3>Preguntas</h3>
                 <div>
                     <QuestionsList searchBy={'product_id'} id={id}></QuestionsList>
+                    <Button variant="contained" onClick={handleOpen}>
+                            Ver mais preguntas
+                        </Button>
+                        <QuestionsModal open={open} handleClose={handleClose}/>
                 </div>
                 <h3>Nueva pregunta</h3>
                 <textarea value={input} onInput={e => setInput(e.target.value)} />
@@ -70,5 +86,10 @@ const ProductDetail = () => {
         </>
     );
 };
+
+
+
+
+
 
 export default ProductDetail;

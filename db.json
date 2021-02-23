@@ -8,12 +8,20 @@
       "title": "fresh homemade wine",
       "price": 3.5,
       "type": "consumables",
-      "description": "Raw organic brown eggs in a basket",
+      "description": "taste the sweet of my peeps",
       "userID": 2,
       "imgs": [
         "https://i.redd.it/ffa114iqna941.jpg"
       ],
-      "score": 7
+      "score": 7,
+      "address": {
+        "street": "españa 500",
+        "coordinate": {
+          "lat": -32.9415087,
+          "lng": -60.64563569999999
+        },
+        "distance": 45344
+      }
     },
     {
       "id": 2,
@@ -25,7 +33,15 @@
       "imgs": [
         "https://images.freeart.com/comp/art-print/fa8386760/brown-and-white-eggs-in-a-basket.jpg"
       ],
-      "score": 8
+      "score": 8,
+      "address": {
+        "street": "pellegrini 2300",
+        "coordinate": {
+          "lat": -32.9543288,
+          "lng": -60.65636569999999
+        },
+        "distance": 1531
+      }
     },
     {
       "id": 88,
@@ -37,7 +53,15 @@
       "imgs": [
         "https://ichef.bbci.co.uk/news/976/cpsprodpb/4C7A/production/_114587591_gettyimages-676894393.jpg"
       ],
-      "score": 10
+      "score": 10,
+      "address": {
+        "street": "urquiza 1200",
+        "coordinate": {
+          "lat": -32.9425866,
+          "lng": -60.63912689999999
+        },
+        "distance": 1500
+      }
     },
     {
       "userID": 1,
@@ -49,7 +73,15 @@
       "imgs": [
         "http://sobrelatierra.agro.uba.ar/wp-content/uploads/2018/05/spunta777.jpg"
       ],
-      "score": 5
+      "score": 5,
+      "address": {
+        "street": "maipu 700",
+        "coordinate": {
+          "lat": -32.9461668,
+          "lng": -60.63508470000001
+        },
+        "distance": 122220
+      }
     },
     {
       "userID": 1,
@@ -61,7 +93,15 @@
       "imgs": [
         "https://www.dhddelivery.com/wp-content/uploads/2019/10/C%C3%B3mo-manejar-los-electrodom%C3%A9sticos.jpg"
       ],
-      "score": 7
+      "score": 7,
+      "address": {
+        "street": "San Luis 844",
+        "coordinate": {
+          "lat": -32.94967101738757,
+          "lng": -60.635285337996656
+        },
+        "distance": 35444
+      }
     }
   ],
   "questions": [
@@ -94,14 +134,33 @@
       "text": "son cebu o q",
       "product_id": "88",
       "id": 5
+    },
+    {
+      "user_id": 1,
+      "text": "tenes licor de menta granizada?",
+      "product_id": "1",
+      "id": 6
+    },
+    {
+      "user_id": 1,
+      "text": "lo puedo pasar a buuscar en bici?",
+      "product_id": "1",
+      "id": 7
     }
   ],
   "user": {
     "user_name": "thebestuser",
     "id": 1,
-    "address": {},
     "id_document": 123444,
-    "real_name": ""
+    "real_name": "pancho doto",
+    "address": {
+      "street": "Riobamba 2932",
+      "coordinate": {
+        "lat": -32.95851098081876,
+        "lng": -60.66750671420463
+      },
+      "distance": 0
+    }
   },
   "productTypes": [
     {

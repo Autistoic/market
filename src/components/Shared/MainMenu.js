@@ -23,17 +23,22 @@ const MainMenu = () => {
 
     return (<>
         <nav>
+            <Link to="/">
+                <Button aria-controls="simple-menu" aria-haspopup="true">
+                    Home
+         </Button>
+            </Link>
             <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
                 Categorias
          </Button>
-         <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
+            <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
                 Ofertas
          </Button>
-         <Link to="/profile">
-         <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
-                Mi cuenta
-         </Button>
-         </Link>
+            <Link to="/profile">
+                <Button aria-controls="simple-menu" aria-haspopup="true">
+                    Mi cuenta
+                    </Button>
+            </Link>
             <Menu
                 id="simple-menu"
                 anchorEl={anchorEl}
@@ -45,18 +50,6 @@ const MainMenu = () => {
                 <MenuItem onClick={handleClose}>My account</MenuItem>
                 <MenuItem onClick={handleClose}>Logout</MenuItem>
             </Menu>
-
-            {/* <ul>
-                <li>
-                    <Link to="/">Home</Link>
-                </li>
-                <li>
-                    <Link to="/about">About</Link>
-                </li>
-                <li>
-                    <Link to="/profile">Profile</Link>
-                </li>
-            </ul> */}
         </nav >
     </>)
 }

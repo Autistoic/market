@@ -21,7 +21,7 @@ const ProductList = () => {
     const [pageState, setPageState] = useState(1);
     let page = 1;
     const itemsPerPage = 3;
-    const productsSearchCriteria = [
+    const productsSortCriteria = [
         {
             text: "menor precio",
             value: "priceMin",
@@ -145,19 +145,18 @@ const ProductList = () => {
         loadNextPage()
     };
 
-
     return (
 
         <>
             <div>
                 <div>
-                <TextField id="outlined-basic" label="Buscar" variant="outlined" onChange={handleSearch}/>
+                    <TextField id="outlined-basic" label="Buscar" variant="outlined" onChange={handleSearch}/>
                 </div>
                 {status === 'error' && <div>{ }</div>}
                 {status === 'fetching' && <div>loading</div>}
                 {status === 'fetched' && (
                     <>
-                        <SelectOrder searchCriteria={productsSearchCriteria} handleClick={handleSortClick} />
+                        <SelectOrder sortCriteria={productsSortCriteria} handleClick={handleSortClick} />
                         <ItemsList ItemComponent={<ProductListItem />} items={products} route={'product'} />
                         <Pagination count={Math.round(totalProducts / itemsPerPage)} page={pageState} onChange={handlePageClick} />
                     </>)

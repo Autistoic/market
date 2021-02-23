@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import ItemsList from './ItemsList'
 import QuestionListItem from '../Questions/QuestionListItem';
+import Modal from '@material-ui/core/Modal';
+import Button from '@material-ui/core/Button';
 
 const QuestionsList = ({ searchBy, id, route }) => {
 
@@ -20,16 +22,20 @@ const QuestionsList = ({ searchBy, id, route }) => {
                 }
             )
     }, [])
+
     return (
         <>
             {
                 status === 'fetched' && (
-                    <ItemsList ItemComponent={<QuestionListItem />} items={questions} route={route} />
+                    <>
+                        <ItemsList ItemComponent={<QuestionListItem />} items={questions} route={route} />
+                    </>
                 )
             }
         </>
     )
 };
+
 
 QuestionsList.propTypes = {};
 
